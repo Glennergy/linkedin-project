@@ -1,18 +1,24 @@
-let uname = "Glenn Montera";
-let job = "Future Software Dev";
-let picpath = "./assets/images/man.png";
-let profilepic = document.querySelectorAll("img");
+let userProfile = {
+  username: "Glenn Montera",
+  jobTitle: "Future Software Dev",
+  profilePicture: "./assets/images/man.png",
+};
 
-let user = document.querySelector(".nav__username");
-user.innerHTML = uname;
-// console.log(user);
+function loadUserProfile() {
+  let imagelen = document.querySelectorAll(".profile-card__img__link");
+  console.log(imagelen);
 
-let profile = document.querySelector(".profile-card__title");
-profile.innerHTML = uname + ", " + job;
-// console.log(profile);
+  let user = document.querySelector(".nav__username");
+  user.innerHTML = userProfile.username;
+  // console.log(user);
 
-for (let index = 0; index < profilepic.length - 1; index++) {
-  profilepic[index + 1].src = "./assets/images/man.png";
+  let profile = document.querySelector(".profile-card__title");
+  profile.innerHTML = userProfile.username + ", " + userProfile.jobTitle;
+  // console.log(profile);
+
+  for (let index = 0; index < imagelen.length; index++) {
+    imagelen[index].src = userProfile.profilePicture;
+  }
 }
 
 // Add Comment function
@@ -29,7 +35,7 @@ post.onclick = function addComment() {
 
   let newpostsuname = document.createElement("div");
   newpostsuname.classList.add("posts__username");
-  newpostsuname.innerHTML = uname + " Posted";
+  newpostsuname.innerHTML = userProfile.username + " Posted";
 
   let newpostcontent = document.createElement("div");
   newpostcontent.classList.add("posts__content");
@@ -43,3 +49,5 @@ post.onclick = function addComment() {
   newpostsitem.appendChild(newpostcontent);
   newpostcontent.appendChild(newcomment);
 };
+
+loadUserProfile();
