@@ -44,10 +44,17 @@ post.onclick = function createPost() {
   newcomment.innerHTML = posttext.value;
   console.log(posttext.value);
 
+  let newbtn = document.createElement("div");
+  newbtn.classList.add("posts__like");
+  let likebtn = document.createElement("button");
+  likebtn.innerHTML = "Like";
+  newbtn.appendChild(likebtn);
+
   commentpost.prepend(newpostsitem);
   newpostsitem.appendChild(newpostsuname);
   newpostsitem.appendChild(newpostcontent);
   newpostcontent.appendChild(newcomment);
+  newpostsitem.appendChild(newbtn);
 };
 
-loadUserProfile();
+window.onload = loadUserProfile();
