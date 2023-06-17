@@ -25,7 +25,7 @@ function loadUserProfile() {
 
 const post = document.querySelector(".post-button");
 
-post.onclick = function addComment() {
+post.onclick = function createPost() {
   let commentpost = document.querySelector(".posts");
   const posttext = document.querySelector(".new__input");
 
